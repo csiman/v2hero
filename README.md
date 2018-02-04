@@ -1,4 +1,27 @@
+{
+  "language": "go",
+  "sudo": "required",
+  "services": [
+    "docker"
+  ],
+  "before_install": [
+    "docker build -t registry.heroku.com/\"$HEROKU_APPNAME\"/web .",
+    "docker login -u \"$HEROKU_EMAIL\" -p \"$HEROKU_APIKEY\" registry.heroku.com",
+    "docker push registry.heroku.com/\"$HEROKU_APPNAME\"/web"
+  ],
+  "group": "stable",
+  "dist": "trusty",
+  "os": "linux"
+}
+
+
+
+
+
+
+
 # v2hero  [![Build Status](https://travis-ci.org/onplus/v2hero.svg?branch=core-3.1)](https://travis-ci.org/onplus/v2hero)
+
 本项目是一个利用Travis-CI部署Docker到Heroku 的学习示例。
 
 如果为您的学习提供了帮助，欢迎给一个Star ^_^
