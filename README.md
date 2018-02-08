@@ -5,7 +5,7 @@
     "docker"
   ],
   "before_install": [
-    "docker build -t registry.heroku.com/\"$HEROKU_APPNAME\"/web .",
+    "docker build registry.heroku.com/\"$HEROKU_APPNAME\"/web",
     "docker login -u \"$HEROKU_EMAIL\" -p \"$HEROKU_APIKEY\" registry.heroku.com",
     "docker push registry.heroku.com/\"$HEROKU_APPNAME\"/web"
   ],
